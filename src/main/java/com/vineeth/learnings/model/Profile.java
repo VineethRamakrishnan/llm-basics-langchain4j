@@ -11,14 +11,14 @@ public record Profile (
 		@JsonPropertyDescription("name of the profile which may or mighn't include last name")
 		String name, 
 		
-		@JsonPropertyDescription("Gender of the profile")
+		@JsonPropertyDescription("Gender of the profile, in CamelCase format")
 		String gender,
 		
 		@JsonPropertyDescription("Github repository link which may or maynot present in the profile")
 		String githubLink,
 		
-		@JsonPropertyDescription("Total years of experience of the candidate profile")
-		String experience,
+		@JsonPropertyDescription("Total number of years of experience of the candidate profile, only number")
+		int experience,
 		
 		@JsonPropertyDescription("The profile's primary skill")
 		List<String> skillSet,

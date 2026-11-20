@@ -15,13 +15,23 @@ public class AIConfiguration {
 	@Value("${spring.boot.lc4j.apikey}")
 	private String apiKey="";
 	
+	//Creating chatmodel bean to be used for lc4j
 	@Bean
-	public ChatModel ChatModel() {
+	public ChatModel getchatModelbean() {
 		
 		return OpenAiChatModel.builder()
 						.apiKey(apiKey)
 						.modelName(OpenAIModelList.MiniModel)
 						.build();
 	}
+	
+//	Way of creating bean for openAI SDK implementation
+//	@Bean
+//	public OpenAiClient getOpenAIClientbean() {
+//		
+//		return OpenAIOkHttpClient.builder()
+//								.apiKey(apiKey)
+//								.build();
+//	}
 	
 }

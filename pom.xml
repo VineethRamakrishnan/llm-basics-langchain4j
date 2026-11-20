@@ -53,6 +53,13 @@
             <version>1.23.0-beta33</version>
         </dependency>
 		
+		<!-- Ollama dependency to connect with local models -->
+		<dependency>
+            <groupId>dev.langchain4j</groupId>
+            <artifactId>langchain4j-ollama</artifactId>
+            <version>${langchain4j.version}</version>
+        </dependency>
+		
 </dependencies>
     
 </project>

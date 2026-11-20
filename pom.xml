@@ -45,6 +45,14 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- AI Services integration for Spring Boot 4 -->
+        <dependency>
+            <groupId>dev.langchain4j</groupId>
+            <artifactId>langchain4j-spring-boot4-starter</artifactId>
+            <version>1.23.0-beta33</version>
+        </dependency>
+		
 </dependencies>
     
 </project>

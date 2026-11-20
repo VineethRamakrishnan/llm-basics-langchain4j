@@ -5,11 +5,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vineeth.learnings.aiservices.AiAssitant;
+
 import dev.langchain4j.model.chat.ChatModel;
 
 /**
  * Class to demonstrate Springboot application with Langchain4J
- * @author Dell
+ * 	- Simple chat
+ *  - AiService chat
+ *  - AiService with system and user messages
+ *  
+ * @author Vineeth
  *
  */
 @RestController
@@ -18,9 +24,14 @@ public class LangChain4JController {
 
 	private final ChatModel chatModel;
 	
+	private AiAssitant assistant;
+	
 	//Constructor Injection
-	public LangChain4JController(ChatModel chatModel) {
+	public LangChain4JController(ChatModel chatModel, AiAssitant assistant) {
+		
 		this.chatModel = chatModel;
+		this.assistant = assistant;
+		
 	    System.out.println("LangChain4JController loaded");
 	}
 
@@ -42,4 +53,20 @@ public class LangChain4JController {
 		return response;
 	}
 	
+	
+	/**
+	 * Implementation of the AIServices concept
+	 */
+	@GetMapping("/aiservice/chat")
+	public String chatWithLLMByAiService(@RequestParam String topic) {
+		
+		return assistant.chat(topic);
+	}
+	
+	
+	@GetMapping("/aiservice/explain")
+	public String chatWithAdditionalArgsToLLMByAiService(@RequestParam String topic) {
+		
+		return assistant.explain(topic);
+	}
 }

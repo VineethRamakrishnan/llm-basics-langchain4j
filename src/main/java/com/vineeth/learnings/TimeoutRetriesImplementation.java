@@ -12,7 +12,10 @@ import dev.langchain4j.model.openai.OpenAiChatModel;
 
 /**
  * Timeout and retry logic implementation
- * @author Dell
+ * 
+ * Errorcode Open AI doc - https://developers.openai.com/api/docs/guides/error-codes
+ * 
+ * @author Vineeth
  *
  */
 public class TimeoutRetriesImplementation {

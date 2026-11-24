@@ -32,7 +32,8 @@ public class PromptTemplateImplementation {
 		PromptTemplate template = PromptTemplate.from("You're hiring manager recruting for building critical systems."
 				+ " Ask the top 5 questions from this {{field}} for this {{level}}");
 		
-		Map<String,String> inputMap = new HashMap<>();
+		//Values should be in Object - Explain Why? TODO 
+		Map<String,Object> inputMap = new HashMap<>();
 		
 		inputMap.put("field", tech);
 		inputMap.put("level", expLevel);
@@ -40,7 +41,7 @@ public class PromptTemplateImplementation {
 		//Applying the variables to the template to make the prompt
 		String finalPromptToLLM = template.apply(inputMap).text();
 		
-		System.out.println("Prompt : "+finalPromptToLLM);
+		System.out.println("\n\nPrompt : "+finalPromptToLLM);
 		
 		String apiKey=System.getenv("OPENAI_API_KEY");
 		
